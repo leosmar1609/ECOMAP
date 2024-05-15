@@ -13,7 +13,7 @@ public class AdmGUI extends JFrame {
         rastreamentoBotao.setBounds(100, 30, 200, 50);
         add(rastreamentoBotao);
         
-        JButton administrarBotao = new JButton("Gerenciar Funcionários");
+        JButton administrarBotao = new JButton("Gerenciar Usuários");
         administrarBotao.setBounds(100, 100, 200, 50);
         add(administrarBotao);
 
@@ -29,7 +29,8 @@ public class AdmGUI extends JFrame {
 
         administrarBotao.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JOptionPane.showMessageDialog(null, "Ok");
+                new AdmMainGUI();
+                dispose();
             }
         });
 
@@ -41,5 +42,9 @@ public class AdmGUI extends JFrame {
         });
 
         setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new AdmGUI();
     }
 }

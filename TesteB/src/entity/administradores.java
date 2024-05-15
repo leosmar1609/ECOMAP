@@ -1,19 +1,17 @@
 package entity;
 
 public class administradores {
-    private int id; // opcional, dependendo do uso
+    private int id;
     private String email;
     private String senha;
     private String nome;
 
-    // Construtor
     public administradores(String email, String senha, String nome) {
         this.email = email;
         this.senha = senha;
         this.nome = nome;
     }
 
-    // Getters e Setters
     public int getId() {
         return id;
     }

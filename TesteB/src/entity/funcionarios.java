@@ -6,6 +6,7 @@ public class funcionarios {
     private String fonefunc;
     private String emailfunc;
     private String senhafunc;
+    private String codpontocoleta;
 
     public String getCpffunc() {
         return cpffunc;
@@ -36,5 +37,11 @@ public class funcionarios {
     }
     public void setSenhafunc(String senhafunc) {
         this.senhafunc = senhafunc;
+    }
+    public String getCodpontocoleta() {
+        return codpontocoleta;
+    }
+    public void setCodpontocoleta(String codpontocoleta) {
+        this.codpontocoleta = codpontocoleta;
     }
 }

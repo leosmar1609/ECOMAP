@@ -1,5 +1,6 @@
 package DAO;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -7,7 +8,6 @@ import java.sql.SQLException;
 import conexao.Conexao;
 import entity.funcionarios;
 import entity.pontosdecoleta;
-import entity.rastreamento;
 import entity.voluntarios;
 import entity.residuos;
 import entity.administradores;
@@ -32,11 +32,11 @@ public class ecobancodao {
     public voluntarios buscarUsuario(String email, String senha) {
         voluntarios usuario = null;
         String sql = "SELECT * FROM VOLUNTARIOS WHERE EMAILVOL = ? AND SENHAVOL = ?";
-        
+
         try (PreparedStatement ps = Conexao.getConexao().prepareStatement(sql)) {
             ps.setString(1, email);
             ps.setString(2, senha);
-            
+
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 usuario = new voluntarios();
@@ -50,41 +50,43 @@ public class ecobancodao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        
+
         return usuario;
     }
+
     public void cadastrarPontoColeta(pontosdecoleta pontoColeta, funcionarios funcionario) {
-    String sqlPontoColeta = "INSERT INTO PONTOSDECOLETA (ENDPONTOCOLETA, CEPPONTOCOLETA, BAIRROPONTOCOLETA) VALUES (?, ?, ?)";
-    String sqlFuncionario = "INSERT INTO FUNCIONARIOS (CPFFUNC, NOMEFUNC, FONEFUNC, EMAILFUNC, SENHAFUNC, CODPONTOCOLETA) VALUES (?, ?, ?, ?, ?, LAST_INSERT_ID())";
+        String sqlPontoColeta = "INSERT INTO PONTOSDECOLETA (ENDPONTOCOLETA, CEPPONTOCOLETA, BAIRROPONTOCOLETA) VALUES (?, ?, ?)";
+        String sqlFuncionario = "INSERT INTO FUNCIONARIOS (CPFFUNC, NOMEFUNC, FONEFUNC, EMAILFUNC, SENHAFUNC, CODPONTOCOLETA) VALUES (?, ?, ?, ?, ?, LAST_INSERT_ID())";
 
-    try (PreparedStatement psPontoColeta = Conexao.getConexao().prepareStatement(sqlPontoColeta);
-         PreparedStatement psFuncionario = Conexao.getConexao().prepareStatement(sqlFuncionario)) {
+        try (PreparedStatement psPontoColeta = Conexao.getConexao().prepareStatement(sqlPontoColeta);
+                PreparedStatement psFuncionario = Conexao.getConexao().prepareStatement(sqlFuncionario)) {
 
-        psPontoColeta.setString(1, pontoColeta.getEndpontocoleta());
-        psPontoColeta.setString(2, pontoColeta.getCeppontocoleta());
-        psPontoColeta.setString(3, pontoColeta.getBairropontocoleta());
+            psPontoColeta.setString(1, pontoColeta.getEndpontocoleta());
+            psPontoColeta.setString(2, pontoColeta.getCeppontocoleta());
+            psPontoColeta.setString(3, pontoColeta.getBairropontocoleta());
 
-        psPontoColeta.executeUpdate();
+            psPontoColeta.executeUpdate();
 
-        psFuncionario.setString(1, funcionario.getCpffunc());
-        psFuncionario.setString(2, funcionario.getNomefunc());
-        psFuncionario.setString(3, funcionario.getFonefunc());
-        psFuncionario.setString(4, funcionario.getEmailfunc());
-        psFuncionario.setString(5, funcionario.getSenhafunc());
+            psFuncionario.setString(1, funcionario.getCpffunc());
+            psFuncionario.setString(2, funcionario.getNomefunc());
+            psFuncionario.setString(3, funcionario.getFonefunc());
+            psFuncionario.setString(4, funcionario.getEmailfunc());
+            psFuncionario.setString(5, funcionario.getSenhafunc());
 
-        psFuncionario.executeUpdate();
-    } catch (SQLException e) {
-        e.printStackTrace();
+            psFuncionario.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
-}
+
     public funcionarios buscarFuncionario(String email, String senha) {
         funcionarios funcionario = null;
         String sql = "SELECT * FROM FUNCIONARIOS WHERE EMAILFUNC = ? AND SENHAFUNC = ?";
-    
+
         try (PreparedStatement ps = Conexao.getConexao().prepareStatement(sql)) {
             ps.setString(1, email);
             ps.setString(2, senha);
-    
+
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 funcionario = new funcionarios();
@@ -100,10 +102,11 @@ public class ecobancodao {
         }
         return funcionario;
     }
-    public void cadResiduos(residuos res){
+
+    public void cadResiduos(residuos res) {
         String sql = "INSERT INTO RESIDUOS (TIPORESIDUO, CATEGORIA, DESCRICAO, DESCARTE) VALUES (?, ?, ?, ?)";
 
-        try  (PreparedStatement psResiduos = Conexao.getConexao().prepareStatement(sql)){
+        try (PreparedStatement psResiduos = Conexao.getConexao().prepareStatement(sql)) {
             psResiduos.setString(1, res.getTiporesiduo());
             psResiduos.setString(2, res.getCategoria());
             psResiduos.setString(3, res.getDescricao());
@@ -114,16 +117,17 @@ public class ecobancodao {
             e.printStackTrace();
         }
     }
+
     public administradores buscarAdministrador(String email, String senha) {
         administradores administrador = null;
         String sql = "SELECT * FROM administradores WHERE email = ? AND senha = ?";
-    
+
         try (PreparedStatement psAdministrador = Conexao.getConexao().prepareStatement(sql)) {
             psAdministrador.setString(1, email);
             psAdministrador.setString(2, senha);
-    
+
             ResultSet rs = psAdministrador.executeQuery();
-    
+
             if (rs.next()) {
                 int id = rs.getInt("id");
                 String nome = rs.getString("nome");
@@ -133,47 +137,133 @@ public class ecobancodao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    
+
         return administrador;
     }
 
-    public void rastrear (rastreamento quantcoletares){
-        String sql= "INSERT INTO RASTREAMENTO (QUANTCOLETARES) VALUES (?)";
-        try (PreparedStatement psRastro=Conexao.getConexao().prepareStatement(sql)){
-            psRastro.setString(1, quantcoletares.getQuantcoletares());
+    public void deletarVoluntario(voluntarios vol) {
+        String sqlVol = "DELETE FROM VOLUNTARIOS WHERE CPFVOL = ?";
 
-            psRastro.executeUpdate();
-        }
-            
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    public residuos buscaResiduos(String tiporesiduo, String categoria, String descricao, String descarte){
-        residuos residuo=null;
-        String sql="SELECT * FROM RESIDUOS WHERE TIPORESIDUO=? AND CATEGORIA=? AND DESCRICAO=? AND DESCARTE=?";
-        try (PreparedStatement rt=Conexao.getConexao().prepareStatement(sql)){
-            rt.setString(1, tiporesiduo);
-            rt.setString(2, categoria);
-            rt.setString(3, descricao);
-            rt.setString(4, descarte);
-            ResultSet rs = rt.executeQuery();
-            if (rs.next()){
-                residuo=new residuos();
-                residuo.setTiporesiduo(rs.getString("TIPORESIDUO"));
-                residuo.setCategoria(rs.getString("CATEGORIA"));
-                residuo.setDescricao(rs.getString("DESCRICAO"));
-                residuo.setDescarte(rs.getString("DESCARTE"));
+        try (Connection connection = Conexao.getConexao();
+                PreparedStatement psDeleteVol = connection.prepareStatement(sqlVol)) {
 
-                
+            connection.setAutoCommit(false);
 
-            }rs.close();
+            psDeleteVol.setString(1, vol.getCpfvol());
+            psDeleteVol.executeUpdate();
+            connection.commit();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return residuo;
     }
 
+    public void deletarFuncionario(funcionarios fun) {
+        String sqlFunc = "DELETE FROM FUNCIONARIOS WHERE CPFFUNC = ?";
+
+        try (Connection connection = Conexao.getConexao();
+                PreparedStatement psDeleteFunc = connection.prepareStatement(sqlFunc)) {
+
+            connection.setAutoCommit(false);
+
+            psDeleteFunc.setString(1, fun.getCpffunc());
+            psDeleteFunc.executeUpdate();
+            connection.commit();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
+    public voluntarios pesquisarUsuario(String cpfvol) {
+        voluntarios dvol = null;
+
+        String query = "SELECT * FROM VOLUNTARIOS WHERE CPFVOL = ?";
+        try (PreparedStatement statement = Conexao.getConexao().prepareStatement(query)) {
+            statement.setString(1, cpfvol);
+            ResultSet rs = statement.executeQuery();
+            if (rs.next()) {
+                dvol = new voluntarios();
+                dvol.setCpfvol(rs.getString("CPFVOL"));
+                dvol.setNomevol(rs.getString("NOMEVOL"));
+                dvol.setFonevol(rs.getString("FONEVOL"));
+                dvol.setEmailvol(rs.getString("EMAILVOL"));
+                dvol.setSenhavol(rs.getString("SENHAVOL"));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return dvol;
+    }
+
+    public funcionarios pesquisarFuncionario(String cpffunc) {
+        funcionarios dfunc = null;
+        String que = "SELECT * FROM FUNCIONARIOS WHERE CPFFUNC = ?";
+        try (PreparedStatement sta = Conexao.getConexao().prepareStatement(que)) {
+            sta.setString(1, cpffunc);
+            ResultSet rt = sta.executeQuery();
+
+            if (rt.next()) {
+                dfunc = new funcionarios();
+                dfunc.setCpffunc(rt.getString("CPFFUNC"));
+                dfunc.setNomefunc(rt.getString("NOMEFUNC"));
+                dfunc.setFonefunc(rt.getString("FONEFUNC"));
+                dfunc.setEmailfunc(rt.getString("EMAILFUNC"));
+                dfunc.setSenhafunc(rt.getString("SENHAFUNC"));
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dfunc;
+    }
+
+    public voluntarios alterarDadosVol(String cpfvol, String nomevol, String fonevol, String emailvol, String senhavol) {
+        voluntarios avol = null;
+        String alter = "UPDATE VOLUNTARIOS SET nomevol = ?, fonevol = ?, emailvol = ?, senhavol = ? WHERE cpfvol = ?";
     
+        try (PreparedStatement altvol = Conexao.getConexao().prepareStatement(alter)) {
+            altvol.setString(1, nomevol);
+            altvol.setString(2, fonevol);
+            altvol.setString(3, emailvol);
+            altvol.setString(4, senhavol);
+            altvol.setString(5, cpfvol);
+    
+            int rowsUpdated = altvol.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("Voluntário atualizado com sucesso.");
+                // Aqui você pode buscar o voluntário atualizado para retornar, se necessário
+                avol = new voluntarios();
+            }
+        } catch (Exception e) {
+            System.err.println("Erro ao atualizar os dados do voluntário: " + e.getMessage());
+        }
+        return avol;
+    }
+
+    public funcionarios alterarDadosFunc(String cpffunc, String nomefunc, String fonefunc, String emailfunc, String senhafunc) {
+        funcionarios afunc = null;
+        String alter = "UPDATE FUNCIONARIOS SET nomefunc = ?, fonefunc = ?, emailfunc = ?, senhafunc = ? WHERE cpffunc = ?";
+    
+        try (PreparedStatement altfunc = Conexao.getConexao().prepareStatement(alter)) {
+            altfunc.setString(1, nomefunc);
+            altfunc.setString(2, fonefunc);
+            altfunc.setString(3, emailfunc);
+            altfunc.setString(4, senhafunc);
+            altfunc.setString(5, cpffunc);
+    
+            int rowsUpdated = altfunc.executeUpdate();
+            if (rowsUpdated > 0) {
+                System.out.println("Funcionário atualizado com sucesso.");
+                afunc = new funcionarios();
+                afunc.setCpffunc(cpffunc);
+                afunc.setNomefunc(nomefunc);
+                afunc.setFonefunc(fonefunc);
+                afunc.setEmailfunc(emailfunc);
+                afunc.setSenhafunc(senhafunc);
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao atualizar os dados do funcionário: " + e.getMessage());
+        }
+        return afunc;
+    }
+}

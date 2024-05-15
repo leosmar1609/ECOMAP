@@ -49,7 +49,7 @@ public class Main extends JFrame {
                 administradores usuarioAdministrador = banco.buscarAdministrador(email, senha);
 
                 if (usuarioVoluntario != null) {
-                    JOptionPane.showMessageDialog(null, "Bem vindo(a) Voluntário: " + usuarioVoluntario.getNomevol() + "!");
+                    dispose();
                 } else if (usuarioFuncionario != null) {
                     JOptionPane.showMessageDialog(null, "Bem vindo(a) Funcionário: " + usuarioFuncionario.getNomefunc() + "!");
                 } else if (usuarioAdministrador != null) {
