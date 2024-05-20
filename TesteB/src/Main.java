@@ -63,10 +63,8 @@ public class Main extends JFrame {
 
         sairBotão.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int escolha = JOptionPane.showConfirmDialog(Main.this, "Tem certeza que deseja sair da tela de login?", "Sair", JOptionPane.YES_NO_OPTION);
-
-                if (escolha == JOptionPane.YES_OPTION) {
-                    System.exit(0);
+               dispose();
+                new Menu();
                 }
             }
         });
