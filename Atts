@@ -1,12 +1,6 @@
-Projeto atualizado por último em 15/05/2024:
-
-- Implementadas todas as funconalidades de Administradores;
-- Lógica de cadastro, pesquisa, alteração e exclusão;
+Projeto atualizado por último em 27/05/2024:
 
 Ainda falta implementar:
 
-- Estrutura funcional do voluntário e do funcionário;
-- Rastreamento; 
-- Estilização; 
-- Algumas outras funcionalidades; e
-- Conexão estável.
+- Estilização; e
+- Algumas outras funcionalidades;
