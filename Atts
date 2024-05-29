@@ -1,6 +1,7 @@
-Projeto atualizado por último em 27/05/2024:
-
+Projeto atualizado por último em 29/05/2024:
+Adição de estilização das telas:
+Menu, Cadastro VoluntárioGUI, ADM GUI, Adm search, Adm excluir, TelaVol e TelaFunc
 Ainda falta implementar:
 
-- Estilização; e
+- Estilização de outras telas; e
 - Algumas outras funcionalidades;
