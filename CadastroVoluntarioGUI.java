@@ -25,13 +25,13 @@ public class CadastroVoluntarioGUI extends JFrame implements ActionListener {
         topPanel.setLayout(null);
         add(topPanel);
 
-        JLabel logo = new JLabel("logo ecomap");
+        // Substitua o caminho abaixo pelo caminho correto para a sua imagem
+        ImageIcon logoIcon = new ImageIcon("C:\\Users\\Ryan\\Downloads\\logo.png");
+        // Redimensiona a imagem para 150x100 pixels
+        Image logoImage = logoIcon.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH);
+        ImageIcon resizedLogoIcon = new ImageIcon(logoImage);
+        JLabel logo = new JLabel(resizedLogoIcon);
         logo.setBounds(30, 30, 150, 100);
-        logo.setOpaque(true);
-        logo.setBackground(new Color(0xD3B88C)); // Cor bege
-        logo.setHorizontalAlignment(SwingConstants.CENTER);
-        logo.setVerticalAlignment(SwingConstants.CENTER);
-        logo.setFont(new Font("Helvetica", Font.PLAIN, 18));
         topPanel.add(logo);
 
         JLabel titleLabel = new JLabel("Área de Cadastro");
