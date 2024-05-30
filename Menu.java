@@ -87,7 +87,7 @@ public class Menu extends JFrame {
         logo = new JLabel(resizedLogoIcon);
         // Centralizando a logo na barra verde
         int logoX = (BAR_WIDTH - 200) / 2;
-        int logoY = (getHeight() - 300) / 2;
+        int logoY = (getHeight() - 280) / 2;
         logo.setBounds(logoX, logoY, 200, 200);
         greenBar.add(logo);
 
@@ -259,7 +259,7 @@ public class Menu extends JFrame {
                         panel2.repaint();
                     }
                     int logoX = (BAR_WIDTH - 200) / 2;
-                    int logoY = (getHeight() - 300) / 2;
+                    int logoY = (getHeight() - 280) / 2;
                     logo.setBounds(logoX, logoY, 200, 180); // Centralizar a logo na barra branca
                     greenBar.add(logo);
                     panel1.revalidate();
