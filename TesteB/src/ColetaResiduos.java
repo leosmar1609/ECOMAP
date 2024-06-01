@@ -124,7 +124,7 @@ public class ColetaResiduos extends JFrame implements ActionListener {
         coletarButton.addActionListener(this);
         add(coletarButton);
 
-        sairButton = createButton("Sair", 460, 550, 100, 30);
+        sairButton = createButton("Voltar", 460, 550, 100, 30);
         sairButton.addActionListener(this);
         add(sairButton);
 
@@ -332,14 +332,10 @@ public class ColetaResiduos extends JFrame implements ActionListener {
                         JOptionPane.ERROR_MESSAGE);
             }
         } else if (e.getSource() == sairButton) {
-            int escolha = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja sair?", "Sair",
-                    JOptionPane.YES_NO_OPTION);
-            if (escolha == JOptionPane.YES_OPTION) {
-                new Menu();
+                new TelaVol(cpfUsuarioLogado);
                 dispose();
             }
         }
-    }
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> new ColetaResiduos("CPF_TESTE"));
