@@ -15,6 +15,7 @@ public class RastreamentoGUI extends JFrame {
     private JTextArea txtEndereco;
     private JTextArea txtVoluntario;
     private JButton btnDetalhes;
+    private String cpfUsuarioLogado;
 
     public RastreamentoGUI() {
         setTitle("Rastreamento de Resíduos");
@@ -85,7 +86,7 @@ public class RastreamentoGUI extends JFrame {
         centerPanel.add(lblVoluntario);
         centerPanel.add(txtVoluntario);
 
-        JButton btnDetalhes = new JButton("Sair");
+        JButton btnDetalhes = new JButton("Voltar");
         btnDetalhes.setBackground(new Color(0, 102, 51));
         btnDetalhes.setForeground(Color.WHITE);
         centerPanel.add(new JLabel());
@@ -105,10 +106,9 @@ public class RastreamentoGUI extends JFrame {
         btnDetalhes.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new Menu();
+                new TelaFunc(cpfUsuarioLogado);
             }
         });
-
         setVisible(true);
     }
 
