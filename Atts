@@ -1,8 +1,8 @@
-Projeto atualizado por último em 29/05/2024:
-Adição de estilização das telas:
-Menu, Cadastro VoluntárioGUI, ADM GUI, Adm search, Adm excluir, TelaVol,TelaFunc,Main, GerenciarResiduos,Adm mainGUI,ALterardadosFunc,
-AlterardadosUsuários, ALterarVoluntário,AlteraFuncionário,Cadastropontodecoleta e excluirconta,
+Projeto atualizado por último em 01/06/2024:
+
+- Adição de estilização de todas as telas; e
+- Botão de volta e/ou saídas.
+
 Ainda falta implementar:
 
-- Estilização de outras telas; e
-- Algumas outras funcionalidades;
+- Dump completo do banco de dados.
