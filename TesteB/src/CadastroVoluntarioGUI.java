@@ -95,7 +95,7 @@ public class CadastroVoluntarioGUI extends JFrame implements ActionListener {
         cadastrarButton.addActionListener(this);
         add(cadastrarButton);
 
-        sairButton = createButton("Sair", 460, 400, 100, 30);
+        sairButton = createButton("Voltar", 460, 400, 100, 30);
         sairButton.addActionListener(this);
         add(sairButton);
 
@@ -158,12 +158,10 @@ public class CadastroVoluntarioGUI extends JFrame implements ActionListener {
                         JOptionPane.ERROR_MESSAGE);
             }
         } else if (e.getSource() == sairButton) {
-            int escolha = JOptionPane.showConfirmDialog(this, "Tem certeza que deseja sair?", "Sair",
-                    JOptionPane.YES_NO_OPTION);
-            if (escolha == JOptionPane.YES_OPTION) {
+            
                 new Menu();
                 dispose();
-            }
+            
         }
     }
 
