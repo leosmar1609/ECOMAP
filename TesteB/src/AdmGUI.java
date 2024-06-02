@@ -44,7 +44,7 @@ public class AdmGUI extends JFrame {
         rastreamentoButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 dispose();
-                new RastreamentoGUI().setVisible(true);
+                new RastreamentoADM().setVisible(true);
             }
         });
         add(rastreamentoButton);
