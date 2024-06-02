@@ -1,8 +1,6 @@
-Projeto atualizado por último em 01/06/2024:
+Projeto atualizado por último em 02/06/2024:
 
-- Adição de estilização de todas as telas; e
-- Botão de volta e/ou saídas.
-
-Ainda falta implementar:
-
-- Dump completo do banco de dados.
+- Adição de estilização de todas as telas;
+- Botão de volta e/ou saídas funcionando com o cpfUsuarioLogado;
+- Nova tela de rastreamento diferente para o Administrador; e
+- Dump do banco de dados completo ("Dump20240602.sql");
