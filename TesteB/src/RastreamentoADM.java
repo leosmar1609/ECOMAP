@@ -216,6 +216,6 @@ public class RastreamentoADM extends JFrame {
     }
 
     public static void main(String[] args) {
-        new RastreamentoGUI();
+        new RastreamentoADM();
     }
 }
