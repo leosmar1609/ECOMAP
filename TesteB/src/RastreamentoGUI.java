@@ -14,10 +14,10 @@ public class RastreamentoGUI extends JFrame {
     private JTextArea txtQuantidade;
     private JTextArea txtEndereco;
     private JTextArea txtVoluntario;
-    private JButton btnDetalhes;
     private String cpfUsuarioLogado;
 
-    public RastreamentoGUI() {
+    public RastreamentoGUI(cpfUsuarioLogado) {
+        this.cpfUsuarioLogado = cpf;
         setTitle("Rastreamento de Resíduos");
         setSize(800, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
