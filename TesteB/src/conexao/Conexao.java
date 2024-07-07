@@ -1,26 +1,27 @@
 package conexao;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class Conexao {
+    private static Connection connection;
+    private static final String URL = "jdbc:mysql://localhost:3306/ecobanco";
+    private static final String USER = "root";
+    private static final String PASSWORD = "root";
 
-    private static final String url = "jdbc:mysql://localhost:3306/ecobanco";
-    private static final String user = "root";
-    private static final String password = "root";
+    private Conexao() { }
 
-    private static Connection connn;
-
-    public static Connection getConexao(){
-        try {
-        if(connn == null){
-            connn = DriverManager.getConnection(url, user, password);
-            return connn;
-        }else {
-            return connn;
+    public static Connection getConexao() throws SQLException {
+        if (connection == null || connection.isClosed()) {
+            connection = DriverManager.getConnection(URL, USER, PASSWORD);
         }
-    } catch (Exception e) {
-        e.printStackTrace();
-        return null;
+        return connection;
     }
+
+    public static void closeConexao() throws SQLException {
+        if (connection != null && !connection.isClosed()) {
+            connection.close();
+        }
     }
 }
