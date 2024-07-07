@@ -109,14 +109,13 @@ public class ExcluirConta extends JFrame {
     }
 
     private void excluirConta(String cpfUsuarioLogado) {
-        Connection conexao = Conexao.getConexao();
-        
+        Connection conexao = null;
         try {
+            conexao = Conexao.getConexao();
             conexao.setAutoCommit(false);
 
             int codvol = getCodVoluntario(cpfUsuarioLogado);
             if (codvol != -1) {
-
                 String deleteVoluntario = "UPDATE voluntarios SET estadovol = 'OFF', emailvol = '', senhavol = '' WHERE codvol = ?";
                 try (PreparedStatement stmtVoluntario = conexao.prepareStatement(deleteVoluntario)) {
                     stmtVoluntario.setInt(1, codvol);
@@ -128,12 +127,12 @@ public class ExcluirConta extends JFrame {
                 String deleteFuncionario = "DELETE FROM FUNCIONARIOS WHERE CPFFUNC = ?";
                 String deletepc = "DELETE FROM PONTOSDECOLETA WHERE CODPONTOCOLETA = ?";
                 try (PreparedStatement stmtras = conexao.prepareStatement(deleteras);
-                    PreparedStatement stmtFuncionario = conexao.prepareStatement(deleteFuncionario);
-                PreparedStatement stmtpc = conexao.prepareStatement(deletepc)) {
+                     PreparedStatement stmtFuncionario = conexao.prepareStatement(deleteFuncionario);
+                     PreparedStatement stmtpc = conexao.prepareStatement(deletepc)) {
 
                     stmtras.setInt(1, codpc);
                     stmtras.executeUpdate();
-                    
+
                     stmtFuncionario.setString(1, cpfUsuarioLogado);
                     stmtFuncionario.executeUpdate();
 
@@ -144,6 +143,13 @@ public class ExcluirConta extends JFrame {
             conexao.commit();
             JOptionPane.showMessageDialog(null, "Conta excluída com sucesso!");
         } catch (SQLException e) {
+            if (conexao != null) {
+                try {
+                    conexao.rollback();
+                } catch (SQLException rollbackEx) {
+                    rollbackEx.printStackTrace();
+                }
+            }
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "Erro ao excluir a conta.");
         }
