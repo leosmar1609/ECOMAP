@@ -1,4 +1,6 @@
-Projeto atualizado por último em 07/07/2024:
+Projeto atualizado por último em 09/07/2024:
 
-- Atualização na classe "conexao"; e
-- Atualização no método "excluirConta"
+- Melhorias feitas na classe "Main" (classe de login):
+
+  * Mensagem de erro quando o campo do email está vazio
+  * Resposicionamento dos objetos que interagem com a interface gráfica;
