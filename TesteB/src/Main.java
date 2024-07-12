@@ -16,6 +16,7 @@ public class Main extends JFrame {
     private JPasswordField senhaField;
     private JButton loginBotao;
     private JButton sairBotao;
+    private JButton closeButton;
 
     public Main() {
         setTitle("Login ECOMAP");
@@ -48,6 +49,23 @@ public class Main extends JFrame {
         subtitleLabel.setForeground(new Color(246, 234, 215));
         subtitleLabel.setFont(new Font("Helvetica", Font.PLAIN, 14));
         panel.add(subtitleLabel);
+        
+        closeButton = new JButton("X");
+        closeButton.setFont(new Font("Helvetica", Font.BOLD, 20));
+        closeButton.setForeground(new Color(246, 234, 215));
+        closeButton.setBounds(730, 10, 50, 30);
+        closeButton.setBorderPainted(false);
+        closeButton.setContentAreaFilled(false);
+        closeButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                int escolha = JOptionPane.showConfirmDialog(Main.this, "Tem certeza que deseja sair do ECOMAP?", "Sair",
+                        JOptionPane.YES_NO_OPTION);
+                if (escolha == JOptionPane.YES_OPTION) {
+                    System.exit(0);
+                }
+            }
+        });
+        panel.add(closeButton);
 
         JLabel userLabel = new JLabel("Email:");
         userLabel.setForeground(new Color(0, 102, 51));
