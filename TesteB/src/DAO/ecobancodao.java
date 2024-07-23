@@ -14,18 +14,40 @@ import entity.residuos;
 import entity.administradores;
 
 public class ecobancodao {
-    public void cadastrarVoluntario(voluntarios voluntario) {
-        String sql = "INSERT INTO VOLUNTARIOS (CODVOL, CPFVOL, NOMEVOL, FONEVOL, EMAILVOL, SENHAVOL, ESTADOVOL) VALUES (?, ?, ?, ?, ?, ?, 'ON')";
+    public void cadastrarOuAtualizarVoluntario(voluntarios voluntario) {
+        String verificarSql = "SELECT * FROM VOLUNTARIOS WHERE CPFVOL = ?";
+        String atualizarSql = "UPDATE VOLUNTARIOS SET NOMEVOL = ?, FONEVOL = ?, EMAILVOL = ?, SENHAVOL = ?, ESTADOVOL = 'ON' WHERE CPFVOL = ?";
+        String inserirSql = "INSERT INTO VOLUNTARIOS (CODVOL, CPFVOL, NOMEVOL, FONEVOL, EMAILVOL, SENHAVOL, ESTADOVOL) VALUES (?, ?, ?, ?, ?, ?, 'ON')";
 
-        try (PreparedStatement ps = Conexao.getConexao().prepareStatement(sql)) {
-            ps.setInt(1, voluntario.getCodvol());
-            ps.setString(2, voluntario.getCpfvol());
-            ps.setString(3, voluntario.getNomevol());
-            ps.setString(4, voluntario.getFonevol());
-            ps.setString(5, voluntario.getEmailvol());
-            ps.setString(6, voluntario.getSenhavol());
+        try (Connection conexao = Conexao.getConexao()) {
+            PreparedStatement psVerificar = conexao.prepareStatement(verificarSql);
+            psVerificar.setString(1, voluntario.getCpfvol());
+            ResultSet rs = psVerificar.executeQuery();
 
-            ps.execute();
+            if (rs.next()) {
+                // Voluntário existente, atualizar dados
+                PreparedStatement psAtualizar = conexao.prepareStatement(atualizarSql);
+                psAtualizar.setString(1, voluntario.getNomevol());
+                psAtualizar.setString(2, voluntario.getFonevol());
+                psAtualizar.setString(3, voluntario.getEmailvol());
+                psAtualizar.setString(4, voluntario.getSenhavol());
+                psAtualizar.setString(5, voluntario.getCpfvol());
+                psAtualizar.executeUpdate();
+                System.out.println("Voluntário atualizado com sucesso.");
+            } else {
+                // Novo voluntário, inserir dados
+                PreparedStatement psInserir = conexao.prepareStatement(inserirSql);
+                psInserir.setInt(1, voluntario.getCodvol());
+                psInserir.setString(2, voluntario.getCpfvol());
+                psInserir.setString(3, voluntario.getNomevol());
+                psInserir.setString(4, voluntario.getFonevol());
+                psInserir.setString(5, voluntario.getEmailvol());
+                psInserir.setString(6, voluntario.getSenhavol());
+                psInserir.executeUpdate();
+                System.out.println("Voluntário cadastrado com sucesso.");
+            }
+
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
