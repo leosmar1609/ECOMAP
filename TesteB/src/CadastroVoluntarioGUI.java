@@ -275,7 +275,7 @@ public class CadastroVoluntarioGUI extends JFrame implements ActionListener {
                 v.setFonevol(foneField.getText().replaceAll("[^\\d]", "")); // Enviar apenas números
                 v.setSenhavol(new String(senhaField.getPassword()));
 
-                new ecobancodao().cadastrarVoluntario(v);
+                new ecobancodao().cadastrarOuAtualizarVoluntario(v);
 
                 JOptionPane.showMessageDialog(this, "Voluntário cadastrado com sucesso!");
 
