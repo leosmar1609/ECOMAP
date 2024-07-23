@@ -1,5 +1,4 @@
-Projeto atualizado por último em 11/07/2024:
+Projeto atualizado por último em 23/07/2024:
 
-- Melhorias feitas na classe "Main" (classe de login):
-
- * adicionado o botão de fechamento no canto superior direito da tela;
+- Método de cadastro de voluntários atualizado: se um voluntário estiver "OFF" (com o cadastro apagado) e ele voltar a se cadastrar, o sistema irá reconhecer seu cpf e reinseri-lo no banco de dados com os novos dados (nome, email, senha, telefone e o estado como "ON");
+* Nome do novo método dentro da DAO: "cadastrarOuAtualizarVoluntario" 
