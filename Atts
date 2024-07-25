@@ -1,5 +1,3 @@
-Projeto atualizado por último em 23/07/2024:
+Projeto atualizado por último em 24/07/2024
 
-- Método de cadastro de voluntários atualizado: se um voluntário estiver "OFF" (com o cadastro apagado) e ele voltar a se cadastrar,
-o sistema irá reconhecer seu cpf e reinseri-lo no banco de dados com os novos dados (nome, email, senha, telefone e o estado como "ON");
-* Nome do novo método dentro da DAO: "cadastrarOuAtualizarVoluntario" 
+- Atualizado o regex das classes "Main" e "CadastroVoluntarioGUI";
