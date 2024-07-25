@@ -105,7 +105,7 @@ public class Main extends JFrame {
                 String email = userField.getText();
                 String senha = new String(senhaField.getPassword());
 
-                String emailRegex = "^[a-z]{3,}[._]?[a-z0-9]+@[a-z]+\\.[a-z]{2,}$";
+                String emailRegex = "^[a-z]{3,}([._][a-z0-9]+)*@[a-z]+\\.[a-z]{2,}$";
                 Pattern pattern = Pattern.compile(emailRegex);
                 Matcher matcher = pattern.matcher(email);
 
