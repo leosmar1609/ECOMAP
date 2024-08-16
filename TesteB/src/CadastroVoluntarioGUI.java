@@ -12,7 +12,7 @@ public class CadastroVoluntarioGUI extends JFrame implements ActionListener {
     private JFormattedTextField cpfField;
     private JPasswordField senhaField;
     private JButton cadastrarButton, sairButton;
-    private final String emailRegex = "^[a-z]{3,}([._][a-z0-9]+)*@[a-z]+\\.[a-z]{2,}$";
+    private final String emailRegex = "^[a-z]{3,}([._]?[a-z0-9]+)*@[a-z]+\\.[a-z]{2,}$";
     private final Pattern emailPattern = Pattern.compile(emailRegex);
 
     public CadastroVoluntarioGUI() {
