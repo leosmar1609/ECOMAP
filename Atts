@@ -1,3 +1,5 @@
-Projeto atualizado por último em 16/08/2024
+Projeto atualizado por último em 30/08/2024
 
-- Atualizado o regex das classes "Main" e "CadastroVoluntarioGUI"
+- Mensagens de erro: "email" e "senha" vazios, atualizadas na classe "Main"
+
+V2.1.2
