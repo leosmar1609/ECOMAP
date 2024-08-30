@@ -11,12 +11,13 @@ import java.util.regex.Matcher;
 public class Main extends JFrame {
     private int tentativas = 0;
     private String cpfUsuarioLogado;
-    private JLabel errorMsg;
+    private JLabel errorMsg, errorMsgp;
     private JLabel senhaLabel;
     private JPasswordField senhaField;
     private JButton loginBotao;
     private JButton sairBotao;
     private JButton closeButton;
+    private int offset = 0;
 
     public Main() {
         setTitle("Login ECOMAP");
@@ -91,13 +92,20 @@ public class Main extends JFrame {
         add(senhaLabel);
 
         senhaField = new JPasswordField();
-        senhaField.setBounds(340, 200, 200, 25);
+        senhaField.setBounds(340, 210, 200, 25);
         add(senhaField);
 
-        loginBotao = createButton("LOGIN", 340, 250, 100, 30);
+        errorMsgp = new JLabel("Campo de senha está vazio!");
+        errorMsgp.setBounds(340, 240, 200, 25);
+        errorMsgp.setForeground(new Color(255, 0, 0));
+        errorMsgp.setFont(new Font("Helvetica", Font.BOLD, 14));
+        errorMsgp.setVisible(false);
+        add(errorMsgp);
+
+        loginBotao = createButton("LOGIN", 340, 280, 100, 30);
         add(loginBotao);
 
-        sairBotao = createButton("VOLTAR", 450, 250, 100, 30);
+        sairBotao = createButton("VOLTAR", 450, 280, 100, 30);
         add(sairBotao);
 
         loginBotao.addActionListener(new ActionListener() {
@@ -109,16 +117,28 @@ public class Main extends JFrame {
                 Pattern pattern = Pattern.compile(emailRegex);
                 Matcher matcher = pattern.matcher(email);
 
+                boolean error = false;
+
                 if (email.isEmpty()) {
-                    errorMsg.setText("Campo de email está vazio!");
                     errorMsg.setVisible(true);
-                    moveComponentsDown();
-                    return;
+                    error = true;
                 } else {
                     errorMsg.setVisible(false);
                 }
-                panel.revalidate();
-                panel.repaint();
+
+                if (senha.isEmpty()) {
+                    errorMsgp.setVisible(true);
+                    error = true;
+                } else {
+                    errorMsgp.setVisible(false);
+                }
+
+                if (error) {
+                    moveComponentsDown();
+                    return;
+                } else {
+                    resetComponentsPosition();
+                }
 
                 if (!matcher.matches()) {
                     JOptionPane.showMessageDialog(null, "Email inválido. Insira o email cadastrado");
@@ -172,8 +192,17 @@ public class Main extends JFrame {
             public void keyTyped(KeyEvent e) {
                 if (errorMsg.isVisible()) {
                     errorMsg.setVisible(false);
-                    resetComponentsPosition();
                 }
+                resetComponentsPosition();
+            }
+        });
+
+        senhaField.addKeyListener(new KeyAdapter() {
+            public void keyTyped(KeyEvent e) {
+                if (errorMsgp.isVisible()) {
+                    errorMsgp.setVisible(false);
+                }
+                resetComponentsPosition();
             }
         });
 
@@ -203,26 +232,33 @@ public class Main extends JFrame {
             }
         };
         button.setFont(new Font("Helvetica", Font.BOLD, 14));
+        button.setForeground(Color.WHITE);
         button.setBounds(x, y, width, height);
-        button.setForeground(new Color(246, 234, 215));
         button.setContentAreaFilled(false);
-        button.setBorderPainted(false);
         button.setFocusPainted(false);
         return button;
     }
 
     private void moveComponentsDown() {
-        senhaLabel.setBounds(senhaLabel.getX(), senhaLabel.getY() + 30, senhaLabel.getWidth(), senhaLabel.getHeight());
-        senhaField.setBounds(senhaField.getX(), senhaField.getY() + 30, senhaField.getWidth(), senhaField.getHeight());
-        loginBotao.setBounds(loginBotao.getX(), loginBotao.getY() + 30, loginBotao.getWidth(), loginBotao.getHeight());
-        sairBotao.setBounds(sairBotao.getX(), sairBotao.getY() + 30, sairBotao.getWidth(), sairBotao.getHeight());
+        if (offset == 0) {
+            offset = 25;
+            senhaLabel.setBounds(senhaLabel.getX(), senhaLabel.getY() + offset, senhaLabel.getWidth(), senhaLabel.getHeight());
+            senhaField.setBounds(senhaField.getX(), senhaField.getY() + offset, senhaField.getWidth(), senhaField.getHeight());
+            errorMsgp.setBounds(errorMsgp.getX(), errorMsgp.getY() + offset, errorMsgp.getWidth(), errorMsgp.getHeight());
+            loginBotao.setBounds(loginBotao.getX(), loginBotao.getY() + offset, loginBotao.getWidth(), loginBotao.getHeight());
+            sairBotao.setBounds(sairBotao.getX(), sairBotao.getY() + offset, sairBotao.getWidth(), sairBotao.getHeight());
+        }
     }
 
     private void resetComponentsPosition() {
-        senhaLabel.setBounds(340, 180, 80, 25);
-        senhaField.setBounds(340, 200, 200, 25);
-        loginBotao.setBounds(340, 250, 100, 30);
-        sairBotao.setBounds(450, 250, 100, 30);
+        if (offset != 0) {
+            senhaLabel.setBounds(senhaLabel.getX(), senhaLabel.getY() - 0, senhaLabel.getWidth(), senhaLabel.getHeight());
+            senhaField.setBounds(senhaField.getX(), senhaField.getY() - 0, senhaField.getWidth(), senhaField.getHeight());
+            errorMsgp.setBounds(errorMsgp.getX(), errorMsgp.getY() - offset, errorMsgp.getWidth(), errorMsgp.getHeight());
+            loginBotao.setBounds(loginBotao.getX(), loginBotao.getY() - offset, loginBotao.getWidth(), loginBotao.getHeight());
+            sairBotao.setBounds(sairBotao.getX(), sairBotao.getY() - offset, sairBotao.getWidth(), sairBotao.getHeight());
+            offset = 0;
+        }
     }
 
     public static void main(String[] args) {
