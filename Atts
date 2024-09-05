@@ -1,5 +1,7 @@
-Projeto atualizado por último em 30/08/2024
+Projeto atualizado por último em 05/09/2024
 
-- Mensagens de erro: "email" e "senha" vazios, atualizadas na classe "Main"
+- Página de impressão dos relatórios dos funcionários;
+- Seleção dos pontos de de coletas pelo Administrador; e
+- Criptografia do CPF e Senha dos voluntários;
 
-V2.1.2
+V2.2.0
