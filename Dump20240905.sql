@@ -8,7 +8,7 @@ CREATE TABLE `administradores` (
   UNIQUE KEY `email` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 LOCK TABLES `administradores` WRITE;
-INSERT INTO `administradores` VALUES (1,'leo.marcos6440@gmail.com','75869470Leo.','Leonardo Marcos');
+INSERT INTO `administradores` VALUES (1,'admin','admin','Leonardo Marcos');
 UNLOCK TABLES;
 DROP TABLE IF EXISTS `funcionarios`;
 CREATE TABLE `funcionarios` (
