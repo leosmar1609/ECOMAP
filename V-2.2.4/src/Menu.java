@@ -79,7 +79,7 @@ public class Menu extends JFrame {
         greenBar.setBounds(400, 0, BAR_WIDTH, getHeight());
         panel1.add(greenBar);
 
-        ImageIcon logoIcon = new ImageIcon("C:\\Users\\DELL\\Downloads\\logo menu.png");
+        ImageIcon logoIcon = new ImageIcon("C:\\Users\\DELL\\Downloads\\logo_menu.png");
         Image logoImage = logoIcon.getImage().getScaledInstance(200, 180, Image.SCALE_SMOOTH);
         ImageIcon resizedLogoIcon = new ImageIcon(logoImage);
         logo = new JLabel(resizedLogoIcon);
