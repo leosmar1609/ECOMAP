@@ -1,0 +1,329 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "BancoSetup",
+            "request": "launch",
+            "mainClass": "conexao.BancoSetup",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "AdmGUI",
+            "request": "launch",
+            "mainClass": "AdmGUI",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "AdmMainGUI",
+            "request": "launch",
+            "mainClass": "AdmMainGUI",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "AdmSearch",
+            "request": "launch",
+            "mainClass": "AdmSearch",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "AlterarDadosFunc",
+            "request": "launch",
+            "mainClass": "AlterarDadosFunc",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "AlterarDadosUsuario",
+            "request": "launch",
+            "mainClass": "AlterarDadosUsuario",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "AlterarFuncionarioGUI",
+            "request": "launch",
+            "mainClass": "AlterarFuncionarioGUI",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "AlterarVoluntarioGUI",
+            "request": "launch",
+            "mainClass": "AlterarVoluntarioGUI",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "CadastroPontoColetaGUI",
+            "request": "launch",
+            "mainClass": "CadastroPontoColetaGUI",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "CadastroVoluntarioGUI",
+            "request": "launch",
+            "mainClass": "CadastroVoluntarioGUI",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "ColetaResiduos",
+            "request": "launch",
+            "mainClass": "ColetaResiduos",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "ExcluirConta",
+            "request": "launch",
+            "mainClass": "ExcluirConta",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "GerenciarResiduos",
+            "request": "launch",
+            "mainClass": "GerenciarResiduos",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "RastreamentoADM",
+            "request": "launch",
+            "mainClass": "RastreamentoADM",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "TelaFunc",
+            "request": "launch",
+            "mainClass": "TelaFunc",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "TelaVol",
+            "request": "launch",
+            "mainClass": "TelaVol",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "AdmExcluir",
+            "request": "launch",
+            "mainClass": "AdmExcluir",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "Selecaofunc",
+            "request": "launch",
+            "mainClass": "Selecaofunc",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "Menu",
+            "request": "launch",
+            "mainClass": "Menu",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "RastreamentoGUI",
+            "request": "launch",
+            "mainClass": "RastreamentoGUI",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "V-2.2.4_880d7677"
+        },
+        {
+            "type": "java",
+            "name": "RastreamentoGUI",
+            "request": "launch",
+            "mainClass": "RastreamentoGUI",
+            "projectName": "TesteB_dae3417d"
+        },
+        {
+            "type": "java",
+            "name": "Conexao",
+            "request": "launch",
+            "mainClass": "conexao.Conexao",
+            "projectName": "TesteB_dae3417d"
+        },
+        {
+            "type": "java",
+            "name": "Menu",
+            "request": "launch",
+            "mainClass": "Menu",
+            "projectName": "TesteB_dae3417d"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "TesteB_dae3417d"
+        },
+        {
+            "type": "java",
+            "name": "Selecaofunc",
+            "request": "launch",
+            "mainClass": "Selecaofunc",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "AdmExcluir",
+            "request": "launch",
+            "mainClass": "AdmExcluir",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "AdmGUI",
+            "request": "launch",
+            "mainClass": "AdmGUI",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "AdmMainGUI",
+            "request": "launch",
+            "mainClass": "AdmMainGUI",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "AdmSearch",
+            "request": "launch",
+            "mainClass": "AdmSearch",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "AlterarDadosFunc",
+            "request": "launch",
+            "mainClass": "AlterarDadosFunc",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "AlterarDadosUsuario",
+            "request": "launch",
+            "mainClass": "AlterarDadosUsuario",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "AlterarFuncionarioGUI",
+            "request": "launch",
+            "mainClass": "AlterarFuncionarioGUI",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "AlterarVoluntarioGUI",
+            "request": "launch",
+            "mainClass": "AlterarVoluntarioGUI",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "CadastroPontoColetaGUI",
+            "request": "launch",
+            "mainClass": "CadastroPontoColetaGUI",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "CadastroVoluntarioGUI",
+            "request": "launch",
+            "mainClass": "CadastroVoluntarioGUI",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "ColetaResiduos",
+            "request": "launch",
+            "mainClass": "ColetaResiduos",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "ExcluirConta",
+            "request": "launch",
+            "mainClass": "ExcluirConta",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "GerenciarResiduos",
+            "request": "launch",
+            "mainClass": "GerenciarResiduos",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "Main",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "Menu",
+            "request": "launch",
+            "mainClass": "Menu",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "RastreamentoADM",
+            "request": "launch",
+            "mainClass": "RastreamentoADM",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "RastreamentoGUI",
+            "request": "launch",
+            "mainClass": "RastreamentoGUI",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "TelaFunc",
+            "request": "launch",
+            "mainClass": "TelaFunc",
+            "projectName": "TesteB_c9c5bb1"
+        },
+        {
+            "type": "java",
+            "name": "TelaVol",
+            "request": "launch",
+            "mainClass": "TelaVol",
+            "projectName": "TesteB_c9c5bb1"
+        }
+    ]
+}
