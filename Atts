@@ -1,6 +1,5 @@
-Projeto atualizado por último em 18/06/2024:
+Projeto atualizado por último em 10/01/2025
 
-- Botão de volta, entradas e/ou saídas funcionando com o cpfUsuarioLogado;
-- Exclusão de funcionário completa;
-- Exclusão do voluntário apenas muda o estado dele de "ON" para "OFF"; e
-- Regex para email, banco de dados e DocmentListenner + DocumentEvent para controlar cpf e telefone.
+- Projeto empacotado e transformado em um arquivo executavel .jar
+
+V2.2.4
